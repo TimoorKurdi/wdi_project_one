@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title><%= author.name %></title>
+</head>
+<body>
+  <h1>Name: <%= author.name %></h1>
+  <h1> Age: <%= author.age %></h1>
+    <p> Documents: </p>
+    <ul>
+        <% author.documents.each do |document| %>
+        <li>
+            <a href="/documents/<%= document.id %>">
+              <%= document.name %>
+            </a>
+        </li>
+        <% end %>
+    </ul>
+
+</body>
+</html>

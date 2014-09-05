@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>New Document</title>
+</head>
+<body>
+
+  <form action="/documents" method="POST">
+    <input type="text" name="name" placeholder="Name" />
+    <textarea name="content" placeholder="Content" cols="30" rows="10"></textarea>
+    <select name="author_id">
+      <% authors.each do |author| %>
+        <option value="<%= author.id %>"><%= author.name %></option>
+      <% end %>
+    </select>
+    <button>Submit</button>
+  </form>
+
+</body>
+</html>

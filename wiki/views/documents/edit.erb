@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Edit <%= document.name %></title>
+</head>
+<body>
+
+  <form action="/documents/<%= document.id %>" method="POST">
+    <input type="hidden" name="_method" value="PUT">
+    <input type="text"   name="name" placeholder="Name" value="<%= document.name %>" />
+    <textarea name="content" placeholder="Content" cols="30" rows="10" value="<%= document.content %>" ><%= document.content %></textarea>
+    <select name="author_id">
+      <% authors.each do |author| %>
+        <option value="<%= author.id %>" <%= "selected" if document.author.id == author.id%> ><%= author.name %></option>
+        <% end %>
+    </select>
+  </form>
+
+  <form action="/documents/<%= document.id %>" method="POST">
+      <input type="hidden" name="_method" value="DELETE">
+      <button> Delete Doc</button>
+
+</body>
+</html>

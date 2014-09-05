@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Documents</title>
+</head>
+<body>
+
+  <a href="/documents/new">Create a Sickk Doc here</a>
+  <ul>
+    <% documents.each do |document| %>
+    <li>
+        <a href="/documents/<%= document.id %>">
+          <%= document.name %>
+        </a>
+    </li>
+    <% end %>
+  </ul>
+
+</body>
+</html>

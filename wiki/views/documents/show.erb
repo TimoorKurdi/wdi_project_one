@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title><%= document.name %></title>
+</head>
+<body>
+  <h1><%= document.name %></h1>
+  <h1><%= document.content %></h1>
+  <div>
+    <a href="/documents/<%= document.id %>/edit">Edit</a>
+  </div>
+
+  <ul>
+      <li><%= document.content %></li>
+  </ul>
+  <p>From Author
+    <a href="/authors/<%=document.author.id %>">
+      <%= document.author.name %>
+    </a>
+  </p>
+
+</body>
+</html>
