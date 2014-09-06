@@ -1,9 +1,11 @@
   require 'pry'
   require 'sinatra'
   require 'sinatra/reloader'
+  require 'httparty'
   require_relative './lib/connection'
   require_relative './lib/author'
   require_relative './lib/document'
+  require_relative './lib/subscriber'
 
   after do
     ActiveRecord::Base.connection.close
@@ -39,18 +41,16 @@
 end
 
 get("/documents/search") do
-    erb(:"documents/index", {locals: { documents: Document.all() }})
+    erb(:"documents/search")
   end
 
-get("/documents/:searchresults") do
+get("/documents/searchresults") do
 
-  # search_type: params["search_type"],
-  name = params["name"]
+  search = params[:docname]
 
-
-  results = Document.where("searchresults", params[:id])
-  binding.pry
-  erb(:"documents/searchresults", {locals: {results: results, name: name }})
+  results = Document.where({name: search})
+#binding.pry
+  erb(:"documents/searchresults", {locals: {results: results, search: search}})
 end
 
 

@@ -10,14 +10,12 @@
     id serial primary key,
     name varchar(255),
     content text,
-    author_id integer,
-    searchresults boolean
+    author_id integer
   );
 
-  -- CREATE TABLE subscribers(
-  --   id serial primary key,
-  --   name varchar(255),
-  --   age integer,
-  --   email varchar(255),
-  --   author_id integer
-  -- );
+  CREATE TABLE subscribers(
+    id serial primary key,
+    name varchar(255),
+    email varchar(255),
+    doc_id integer
+  );

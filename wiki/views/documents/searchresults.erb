@@ -5,15 +5,18 @@
   <title>Document</title>
 </head>
 <body>
-    <h2>Search results for "<%= name %>"</h2>
+    <h2>Search results for "<%= search %>"</h2>
 
-      <% results.each do |document| %>
+    <ul>
 
-      <li><%= "#{document["name"]} #{document["content"]}" %> </li>
+      <% results.each do |doc| %>
+
+      <li><a href="/documents/<%=doc.id%>"><%=doc.name%></a></li>
+
       <% end %>
 
     </ul>
-        <% end %>
+
 
 
 </body>
