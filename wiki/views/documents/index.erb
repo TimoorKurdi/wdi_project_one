@@ -6,7 +6,23 @@
 </head>
 <body>
 
+  <a href="/">Home</a>
+
+
+  <h3>Search for a Document</h3>
+  <form action="/documents/searchresults" method="GET">
+    <input type="text" name="name" placeholder="Search">
+    <select name="search_type">
+      <option value="name">Title</option>
+    </select>
+    <button>Search</button>
+  </form>
+
+  <br>
+  <br>
+
   <a href="/documents/new">Create a Sickk Doc here</a>
+
   <ul>
     <% documents.each do |document| %>
     <li>
@@ -16,6 +32,8 @@
     </li>
     <% end %>
   </ul>
+
+    </form>
 
 </body>
 </html>

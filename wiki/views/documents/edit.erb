@@ -6,6 +6,8 @@
 </head>
 <body>
 
+  <a href="/">Home</a>
+
   <form action="/documents/<%= document.id %>" method="POST">
     <input type="hidden" name="_method" value="PUT">
     <input type="text"   name="name" placeholder="Name" value="<%= document.name %>" />
@@ -15,6 +17,7 @@
         <option value="<%= author.id %>" <%= "selected" if document.author.id == author.id%> ><%= author.name %></option>
         <% end %>
     </select>
+    <button>Submit</button>
   </form>
 
   <form action="/documents/<%= document.id %>" method="POST">

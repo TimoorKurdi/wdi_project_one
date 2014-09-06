@@ -1,6 +1,3 @@
-  #authors are houses
-  # documents are characters
-
   require 'pry'
   require 'sinatra'
   require 'sinatra/reloader'
@@ -40,6 +37,22 @@
 
   erb(:"documents/index", { locals: { documents: Document.all() }})
 end
+
+get("/documents/search") do
+    erb(:"documents/index", {locals: { documents: Document.all() }})
+  end
+
+get("/documents/:searchresults") do
+
+  # search_type: params["search_type"],
+  name = params["name"]
+
+
+  results = Document.where("searchresults", params[:id])
+  binding.pry
+  erb(:"documents/searchresults", {locals: {results: results, name: name }})
+end
+
 
   get("/documents/:id") do
     document = Document.find_by({id: params[:id]})

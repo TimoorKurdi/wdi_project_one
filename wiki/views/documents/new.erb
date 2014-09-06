@@ -6,14 +6,35 @@
 </head>
 <body>
 
+  <a href="/">Home</a>
+
   <form action="/documents" method="POST">
-    <input type="text" name="name" placeholder="Name" />
+    <input type="text" name="name" placeholder="Title" />
     <textarea name="content" placeholder="Content" cols="30" rows="10"></textarea>
     <select name="author_id">
       <% authors.each do |author| %>
         <option value="<%= author.id %>"><%= author.name %></option>
       <% end %>
     </select>
+
+    <br>
+    <br>
+
+    <button>Submit</button>
+  </form>
+
+    <br>
+    <br>
+
+    <h3>New authors, please enter your information below:</h3>
+
+    <form action="/authors" method="POST">
+    <input type="text" name="name" placeholder= "Name"/>
+    <input type="age" name="age" placeholder= "Age" />
+
+    <br>
+    <br>
+
     <button>Submit</button>
   </form>
 

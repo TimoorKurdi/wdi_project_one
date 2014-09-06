@@ -5,14 +5,17 @@
   <title><%= author.name %></title>
 </head>
 <body>
+  <a href="/">Home</a>
+
   <h1>Name: <%= author.name %></h1>
   <h1> Age: <%= author.age %></h1>
     <p> Documents: </p>
     <ul>
         <% author.documents.each do |document| %>
+        <p> Created: </p>
         <li>
             <a href="/documents/<%= document.id %>">
-              <%= document.name %>
+            <%= document.name %>
             </a>
         </li>
         <% end %>
