@@ -19,3 +19,10 @@
     email varchar(255),
     doc_id integer
   );
+
+  CREATE TABLE revisions(
+    id serial primary key,
+    older_title varchar(255),
+    older_content text,
+    doc_id integer
+  );

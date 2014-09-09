@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>Document</title>
+<link rel="stylesheet" type="text/css" href="/styles.css">
 </head>
 <body>
     <h2>Search results for "<%= search %>"</h2>
@@ -11,7 +12,7 @@
 
       <% results.each do |doc| %>
 
-      <li><a href="/documents/<%=doc.id%>"><%=doc.name%></a></li>
+      <li><a href="/documents/<%=doc.id%>"><%=doc.name%> </a></li>
 
       <% end %>
 

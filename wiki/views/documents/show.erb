@@ -2,7 +2,8 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title><%= document.name %></title>
+  <title> <%=document.name %> </title>
+<link rel="stylesheet" type="text/css" href="/styles.css">
 </head>
 <body>
 
@@ -22,6 +23,12 @@
       <%= document.author.name %>
     </a>
   </p>
+
+  <h3>Search for an older version of a doc</h3>
+
+    <form action="/documents/history/<%=document.id%>" method="GET">
+      <input type="hidden" name="modified" value ="<%=document.id%>">
+      <button class="search">Search for a docs history here</button>
 
 </body>
 </html>

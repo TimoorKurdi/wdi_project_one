@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title> <%=document.name%> </title>
+<link rel="stylesheet" type="text/css" href="/styles.css">
+</head>
+<body>
+
+  <div>
+
+      <% past_docs.each do |past| %>
+      <h3><%= past.older_title %></h3>
+      <h4><%= past.older_content %></h4>
+
+      <% end %>
+
+</div>
+
+
+</body>
+</html>

@@ -6,6 +6,7 @@
   require_relative './lib/author'
   require_relative './lib/document'
   require_relative './lib/subscriber'
+  require_relative './lib/revision'
 
   after do
     ActiveRecord::Base.connection.close
@@ -74,6 +75,16 @@ end
 
     document = Document.find_by({id: params[:id]})
     document.update(document_hash)
+    #binding.pry
+    modified_hash = {
+      older_title: params["name"],
+      older_content: params["content"],
+      doc_id: params["id"]
+    }
+
+
+
+    Revision.create(modified_hash)
 
     erb(:"documents/show", {locals: { document: document }})
   end
@@ -81,8 +92,24 @@ end
   delete("/documents/:id") do
     document = Document.find_by({id: params[:id]})
     document.destroy
+    documents = Revision.where({doc_id: params[:id]})
+    documents.each do |doc|
+      document.destory
+    end
 
     redirect "/documents"
+  end
+
+  get('/documents/history/:id') do
+    document = Document.find_by({id: params[:id]})
+    past_docs = Revision.where({doc_id: params[:modified]})
+
+    erb(:"documents/pastdocs", {locals: {document: document, past_docs: past_docs}})
+  end
+
+  get('/documents/past/:id') do
+    document = Revision.find_by({id: params[:id]})
+    erb(:"documents/old", {locals: {document: document}})
   end
 
   #####################################
@@ -112,4 +139,3 @@ end
 
     erb(:"authors/show", { locals: { author: author }})
   end
-
